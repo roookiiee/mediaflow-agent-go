@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MediaFlow Agent</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="workspace">
+        <aside class="side">
+          <div class="brand">
+            <div class="mark" aria-hidden="true">MF</div>
+            <div>
+              <h1>MediaFlow Agent</h1>
+              <p>AI 视频本地化工作台</p>
+            </div>
+          </div>
+
+          <div class="panel metric-panel">
+            <div class="metric">
+              <span>模型链路</span>
+              <strong id="provider">loading</strong>
+            </div>
+            <div class="metric">
+              <span>质量分</span>
+              <strong id="quality">--</strong>
+            </div>
+            <div class="metric">
+              <span>预计成本</span>
+              <strong id="cost">--</strong>
+            </div>
+          </div>
+
+          <div class="panel history-panel">
+            <div class="panel-title">最近任务</div>
+            <div id="jobs" class="jobs"></div>
+          </div>
+        </aside>
+
+        <section class="main">
+          <form id="briefForm" class="brief-form">
+            <div class="form-row">
+              <label for="brief">产品需求</label>
+              <textarea id="brief" name="brief" rows="4">把一条 45 秒中文 AI 工具介绍视频本地化成英文 TikTok 版本，需要 TTS 计划、标题和发布文案。</textarea>
+            </div>
+
+            <div class="split">
+              <div class="form-row">
+                <label for="targetLocale">目标语言</label>
+                <input id="targetLocale" name="targetLocale" value="English" />
+              </div>
+              <div class="form-row">
+                <label for="channel">渠道</label>
+                <input id="channel" name="channel" value="TikTok" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label for="sourceScript">原始脚本</label>
+              <textarea id="sourceScript" name="sourceScript" rows="5">大家好，今天介绍一款可以自动整理会议纪要的 AI 工具。它能把录音转成清晰摘要，自动提取待办事项，并把结果同步给团队成员。</textarea>
+            </div>
+
+            <button class="run-button" type="submit">
+              <span class="button-icon" aria-hidden="true">▶</span>
+              <span>运行 Agent</span>
+            </button>
+          </form>
+
+          <section class="stream-layout">
+            <div class="panel timeline-panel">
+              <div class="panel-title">执行流</div>
+              <div id="timeline" class="timeline"></div>
+            </div>
+            <div class="panel artifact-panel">
+              <div class="panel-title">产物预览</div>
+              <div id="artifacts" class="artifacts empty">等待第一次运行</div>
+            </div>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
